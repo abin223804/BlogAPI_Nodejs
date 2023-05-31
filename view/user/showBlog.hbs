@@ -1,18 +1,10 @@
-
-
-
-
-
-
-
 <div class="card mb-3">
-  <img style="width: 200px; height: 200px;" src="/blog/{{blog.imagePath}}" class="card-img-top" alt="...">
+  <img style="width: 200px; height: 200px; border-radius: 50%;" src="/blog/{{blog.imagePath}}" class="card-img-top mx-auto d-block" alt="...">
   <div class="card-body">
-    <h5 class="card-title">{{blog.title}}</h5>
-    <p class="card-text">{{blog.content}}</p>
-    <p class="card-text"><small class="text-body-secondary">{{blog.author}}</small></p>
+    <h5 class="card-title text-center">{{blog.title}}</h5>
+    <p class="card-text text-center">{{blog.content}}</p>
+    <p class="card-text text-center"><small class="text-body-secondary">{{blog.author}}</small></p>
     <a class="btn btn-info me-5" href="/deleteblog?id={{blog.id}}">Delete Blog</a>
-
-    <a class="btn btn-warning ms -5" href="updateblog?id={{blog.id}}">Update Blog</a>
+    <a class="btn btn-warning ms-5" href="updateblog?id={{blog.id}}">Update Blog</a>
   </div>
 </div>
