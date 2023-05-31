@@ -1,0 +1,111 @@
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .form-check label {
+            display: block;
+            margin-top: 10px;
+            font-weight: normal;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+        }
+
+        .image-preview {
+            width: 80px;
+            height: 80px;
+            border: 1px solid #ccc;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section class="container sec">
+        <h1>Edit Blog</h1>
+        <form class="row g-3" action="/updateblog" method="post">
+            <div class="col-md-6">
+                <label for="name" class="form-label">Title</label>
+                <input value="{{blog.title}}" autocomplete="off" type="text" class="form-control" id="name" name="title">
+            </div>
+            <div class="col-md-6">
+                <label for="mrp" class="form-label">Author</label>
+                <input value="{{blog.author}}" autocomplete="off" type="text" class="form-control" id="mrp" name="author">
+            </div>
+            <input type="hidden" name="blogId" value="{{blog.id}}" id="">
+            <div class="col-md-2">
+                <img class="image-preview" src="/blog/{{blog.imagePath}}">
+            </div>
+            <div id="inputContainer">
+                <div class="input-group mb-3 col-md-6">
+                    <input autocomplete="off" value="{{this}}" type="file" name="image" class="form-control" id="inputGroupFile01">
+                    <a class="btn btn-success" id="addInputButton">+</a>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <label for="description">Content</label>
+                    <textarea autocomplete="off" class="form-control" id="description" name="content" aria-label="With textarea">{{blog.content}}</textarea>
+                </div>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-danger">Update Blog</button>
+            </div>
+        </form>
+    </section>
+

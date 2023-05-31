@@ -58,8 +58,8 @@ const db = require('./models');
 (async () => {
   try {
     await db.sequelize.sync();
-    app.listen(5000, () => {
-      console.log('Server listening on port 5000');
+    app.listen(4000, () => {
+      console.log('Server listening on port 4000');
     });
   } catch (error) {
     console.error('Error occurred while synchronizing the database:', error);

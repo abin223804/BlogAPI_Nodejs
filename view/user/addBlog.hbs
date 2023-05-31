@@ -1,0 +1,58 @@
+<section class="container sec" style="background-color: #f2f2f2; padding: 20px;">
+
+  {{#if blog}}
+    <h1 style="color: #333; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Edit blog</h1>
+  {{else}}
+    <h1 style="color: #333; font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; margin-bottom: 20px;">Add Blog</h1>
+  {{/if}}
+  
+  <form class="row g-3" method="post" enctype="multipart/form-data">
+    
+    <div class="col-md-6">
+      <label for="name" class="form-label" style="color: #333; font-family: Arial, sans-serif;">Title</label>
+      <input value="{{blog.name}}" autocomplete="off" type="text" class="form-control"  id="name" name="title" style="border-radius: 5px; border: 1px solid #ccc; padding: 10px;">
+    </div>
+    
+    <div class="col-md-6">
+      <label for="mrp" class="form-label" style="color: #333; font-family: Arial, sans-serif;">Author</label>
+      <input value="{{blog.author}}" autocomplete="off" type="text"  class="form-control" id="mrp" name="author" style="border-radius: 5px; border: 1px solid #ccc; padding: 10px;">
+    </div>
+    
+    <input type="hidden" name="id" value="{{blog.id}}" id="">
+    
+    {{#each blog.image}}
+      <div class="col-md-2">
+        <img style="width: 80px; height: 80px; border: 1px solid #ccc; margin: 5px;" src="blogImage/{{this}}">
+      </div>
+    {{/each}}
+    
+    {{#if blog.image}}
+      {{#each blog.image }}
+        <div id="inputContainer">
+          <div class="input-group mb-3 col-md-6">
+            <input autocomplete="off" value="{{this}}" type="file" name="image" class="form-control" id="inputGroupFile01" style="border-radius: 5px;">
+            <a class="btn btn-success" id="addInputButton" style="border-radius: 5px; background-color: #4CAF50; color: white; padding: 10px;">+</a>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <div id="inputContainer">
+        <div class="input-group mb-3 col-md-6">
+          <input autocomplete="off" value="{{this}}" type="file" name="image" class="form-control" id="inputGroupFile01" style="border-radius: 5px;">
+          <a class="btn btn-success" id="addInputButton" style="border-radius: 5px; background-color: #4CAF50; color: white; padding: 10px;">Image</a> 
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="col-12">
+      <div class="form-check">
+        <label for="description" style="color: #333; font-family: Arial, sans-serif;">Content</label>
+        <textarea autocomplete="off" class="form-control" id="description" name="content" aria-label="With textarea" style="border-radius: 5px; border: 1px solid #ccc; padding: 10px;">{{blog.content}}</textarea>
+      </div>
+    </div>
+    
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" style="border-radius: 5px; background-color: #007bff; color: white; padding: 10px;">Create Blog</button>
+    </div>
+  </form>
+</section>
